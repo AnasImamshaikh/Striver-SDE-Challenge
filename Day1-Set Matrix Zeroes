@@ -1,0 +1,21 @@
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        if not matrix:
+            return []
+        m=len(matrix)
+        n=len(matrix[0])
+        
+        z_row=[False]*m
+        z_col=[False]*n
+        
+        for r in range(m):
+            for c in range(n):
+                if matrix[r][c]==0:
+                    z_row[r]=True
+                    z_col[c]=True
+        
+        for r in range(m):
+            for c in range(n):
+                if z_row[r] or z_col[c]:
+                    matrix[r][c]=0
+        
